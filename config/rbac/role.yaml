@@ -22,6 +22,7 @@ rules:
   resources:
   - clusterorders
   - hostpools
+  - hosts
   - virtualmachines
   verbs:
   - create
@@ -36,6 +37,7 @@ rules:
   resources:
   - clusterorders/finalizers
   - hostpools/finalizers
+  - hosts/finalizers
   - virtualmachines/finalizers
   verbs:
   - update
@@ -44,6 +46,7 @@ rules:
   resources:
   - clusterorders/status
   - hostpools/status
+  - hosts/status
   - virtualmachines/status
   verbs:
   - get
