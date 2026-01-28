@@ -27,7 +27,7 @@ import (
 type HostSpec struct {
 	// PowerState defines the desired power state of the host
 	// +kubebuilder:validation:Optional
-	// +kubebuilder:validation:Enum=HostPowerUnknown;HostPowerOn;HostPowerOff
+	// +kubebuilder:validation:Enum=HOST_POWER_STATE_UNSPECIFIED;HOST_POWER_STATE_ON;HOST_POWER_STATE_OFF
 	PowerState HostPowerState `json:"powerState,omitempty"`
 }
 
@@ -35,14 +35,14 @@ type HostSpec struct {
 type HostPowerState string
 
 const (
-	// HostPowerStateUnknown means we don't know the current power state
-	HostPowerStateUnknown HostPowerState = "HostPowerUnknown"
+	// HostPowerStateUnspecified means we don't know the current power state
+	HostPowerStateUnspecified HostPowerState = "HOST_POWER_STATE_UNSPECIFIED"
 
 	// HostPowerStateOn means the host should be powered on
-	HostPowerStateOn HostPowerState = "HostPowerOn"
+	HostPowerStateOn HostPowerState = "HOST_POWER_STATE_ON"
 
 	// HostPowerStateOff means the host should be powered off
-	HostPowerStateOff HostPowerState = "HostPowerOff"
+	HostPowerStateOff HostPowerState = "HOST_POWER_STATE_OFF"
 )
 
 // HostStateType represents the overall state of a host
@@ -126,7 +126,7 @@ type HostStatus struct {
 
 	// PowerState reflects the current power state of the host
 	// +kubebuilder:validation:Optional
-	// +kubebuilder:validation:Enum=HostPowerUnknown;HostPowerOn;HostPowerOff
+	// +kubebuilder:validation:Enum=HOST_POWER_STATE_UNSPECIFIED;HOST_POWER_STATE_ON;HOST_POWER_STATE_OFF
 	PowerState HostPowerState `json:"powerState,omitempty"`
 
 	// Conditions holds an array of metav1.Condition that describe the state of the Host
